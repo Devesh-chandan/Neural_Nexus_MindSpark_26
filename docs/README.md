@@ -1,6 +1,7 @@
 # Neural Nexus: Screenshot Gallery
 
 Screens from the running application, in the order a user meets them. Back to the [main README](../README.md).
+For an interactive, zoomed tour of the same screens, open [walkthrough.html](walkthrough.html) (served by the app at `/walkthrough/`).
 
 > The names, balances and cases are **fictitious demo data**. The figures come from the real payoff, replay, suitability
 > and explanation engines, run offline against the bundled price history. This is a decision-support prototype and not

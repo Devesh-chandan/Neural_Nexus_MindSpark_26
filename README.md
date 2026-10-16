@@ -23,6 +23,10 @@ check it against a client's profile with **deterministic rules**, and get a **pl
 
 <img src="docs/images/01-landing.png" alt="Neural Nexus landing page" width="900" />
 
+**New here? Start with the [guided walkthrough](docs/walkthrough.html)**: an interactive tour of every screen.
+Open it at **`/walkthrough/`** on the running app (e.g. http://localhost:5173/walkthrough/), or open `docs/walkthrough.html` locally in a browser.
+Demo RM and client accounts are listed on the sign-in page (`/login`), so you can try it without registering.
+
 </div>
 
 > **Decision-support prototype. Not investment advice.** Analysis uses historical data and statistical models; past

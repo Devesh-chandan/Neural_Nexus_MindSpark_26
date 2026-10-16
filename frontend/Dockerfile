@@ -3,6 +3,8 @@ WORKDIR /app
 COPY frontend/package.json frontend/package-lock.json ./
 RUN npm ci
 COPY frontend/ .
+# The walkthrough (docs/walkthrough.html + docs/images) is copied into dist/walkthrough by vite.config.ts.
+COPY docs/ /docs/
 # Public Supabase values are baked into the browser bundle at build time (never put the service-role key here).
 ARG VITE_SUPABASE_URL
 ARG VITE_SUPABASE_ANON_KEY

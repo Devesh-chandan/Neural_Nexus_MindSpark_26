@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import {
   ChevronRight, Check, AlertTriangle, X, UserCheck, BarChart3, ShieldCheck, FileText, Lock,
   Database, TrendingUp, Brain, Calculator, Fingerprint, Scale, Sparkles, History, Layers, Users, Menu,
-  ChevronLeft, LineChart, Gauge, Landmark, Eye, Workflow, Boxes, ListChecks, Cpu,
+  ChevronLeft, LineChart, Gauge, Landmark, Eye, Workflow, Boxes, ListChecks, Cpu, PlayCircle,
 } from 'lucide-react';
 import Wordmark, { WordmarkGlyph } from '../components/Wordmark';
 import { useAuth } from '../hooks/useAuth';
@@ -275,7 +275,7 @@ const Kv: React.FC<{ k: string; v: React.ReactNode; accent?: string }> = ({ k, v
 
 /* ─── Header ────────────────────────────────────────────────────────────── */
 
-const NAV: [string, string][] = [['Product', '#product'], ['How it works', '#how-it-works'], ['Suitability', '#suitability'], ['Products', '#products'], ['Verdicts', '#verdicts'], ['Audit', '#audit']];
+const NAV: [string, string][] = [['Product', '#product'], ['How it works', '#how-it-works'], ['Suitability', '#suitability'], ['Products', '#products'], ['Verdicts', '#verdicts'], ['Audit', '#audit'], ['Walkthrough', '/walkthrough/']];
 
 const Header: React.FC = () => {
   const { user, role, loading } = useAuth();
@@ -434,6 +434,9 @@ const LandingPage: React.FC = () => {
                 <div style={{ display: 'grid', gap: 12, maxWidth: 600 }}>
                   <Link to="/login" className="cal-btn cal-btn-dark cal-btn-wide">Sign in to your workspace</Link>
                   <Link to="/client/register" className="cal-btn cal-btn-soft cal-btn-wide">Register as a client <ChevronRight size={15} className="cal-arrow" /></Link>
+                  <a href="/walkthrough/" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, fontSize: 15, fontWeight: 600, color: C.ink, textDecoration: 'none' }}>
+                    <PlayCircle size={17} aria-hidden="true" /> New here? Take the guided product walkthrough
+                  </a>
                   <span style={{ fontSize: 14, color: C.mute }}>Decision support for wealth teams · not investment advice</span>
                 </div>
               </div>
