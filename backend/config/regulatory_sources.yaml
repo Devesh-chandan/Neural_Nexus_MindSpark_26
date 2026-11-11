@@ -1,0 +1,34 @@
+version: "2025-01"
+jurisdiction: "IN"
+status: "DRAFT_PENDING_COMPLIANCE_APPROVAL"
+sources:
+  - id: sebi-investment-adviser
+    authority: SEBI
+    title: "Investment Adviser framework and suitability obligations"
+    url: "https://www.sebi.gov.in/legal/regulations/jan-2025/securities-and-exchange-board-of-india-investment-advisers-regulations-2013-last-amended-on-january-17-2025-_91126.html"
+    accessed: "2025-01-17"
+    applicability: "Suitability and product-governance reference; confirm entity permissions and current amendments."
+  - id: rbi-kyc
+    authority: RBI
+    title: "Master Direction - Know Your Customer (KYC) Direction"
+    url: "https://www.rbi.org.in/RegulatoryFramework/Notification/MDKYC2016.aspx"
+    accessed: "2016-02-25"
+    applicability: "KYC and customer due-diligence reference; institution-specific AML controls still apply."
+  - id: pmla-rules
+    authority: FIU-IND
+    title: "Prevention of Money-laundering legislation and rules"
+    url: "https://fiuindia.gov.in/files/AML_Legislation/Rules.html"
+    accessed: "2023-01-01"
+    applicability: "AML recordkeeping reference; verify the current consolidated text."
+  - id: ifsca-framework
+    authority: IFSCA
+    title: "IFSCA regulatory framework"
+    url: "https://ifsca.gov.in/Legal/Index"
+    accessed: "2026-01-01"
+    applicability: "GIFT IFSC products and permissions; applicability requires compliance confirmation."
+  - id: rbi-fx-deposits
+    authority: RBI
+    title: "Foreign Exchange Management (Deposit) Regulations"
+    url: "https://www.rbi.org.in/Scripts/BS_ViewMasDirections.aspx?id=11504"
+    accessed: "2016-01-01"
+    applicability: "Reference for foreign-currency deposit eligibility and restrictions; confirm whether the offered DCD is legally a deposit or another instrument."

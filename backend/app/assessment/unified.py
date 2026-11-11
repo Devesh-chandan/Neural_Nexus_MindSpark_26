@@ -21,6 +21,7 @@ import copy
 from typing import Any, Dict, List, Optional, Tuple
 
 from app.assessment.extra_checks import INFORMATIONAL, evaluate_extras
+from app.assessment.evidence import build_evidence
 from app.assessment.rules_engine import SuitabilityEngine
 from app.market.fx import inr_rate
 from app.schemas.analysis import MetricsBundle
@@ -150,4 +151,8 @@ def assess_product(
     extras = evaluate_extras(config, profile, metrics) if profile is not None else []
     additional = {EXTRA_NAMES[r.rule_id]: _as_check(r) for r in extras}
     assessment = _engine.run_assessment(client, simulation, additional)
+    evidence = build_evidence(assessment, gaps)
+    assessment["evidence"] = evidence
+    assessment["audit_meta"]["evidence_schema_version"] = evidence["schema_version"]
+    assessment["audit_meta"]["source_catalog_version"] = evidence["governance"]["source_catalog_version"]
     return {"assessment": assessment, "extras": extras, "data_gaps": gaps, "fx": fx, "client": client}

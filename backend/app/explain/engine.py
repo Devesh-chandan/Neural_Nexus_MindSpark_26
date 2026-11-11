@@ -158,6 +158,7 @@ def build_facts(
         "history": _history_facts(simulation),
         "risk_figures": _risk_facts(metrics, product),
         "checks": _check_facts(assessment, client, simulation["audit"]["product"]["notional"]),
+        "evidence": assessment.get("evidence", {}),
     }
     client_facts = {
         **base,
@@ -183,6 +184,8 @@ _COMMON_RULES = """
   round a number to one decimal place.
 - *_pct values are already percentages (-43.83 means -43.83%). Amounts are in the product currency.
 - The history figures are real past market periods replayed on this product, not a forecast. Say so.
+- The evidence object contains the only approved provenance and review-status facts. Use it to
+  distinguish market evidence from internal policy and pending regulatory interpretation.
 - Do not recommend buying or selling. Never use: guaranteed, risk-free, risk free, no risk,
   safe investment, cannot lose, will not lose, 100% safe.
 - Headline wording by verdict: SUITABLE -> "suitable"; NOT_SUITABLE -> "not suitable";
@@ -569,7 +572,8 @@ def explain_assessment(
     """Explain one assessment for the client and the RM. The same function serves /api/analyze and /api/assess.
 
     Returns the structured explanations (`client`, `rm`) plus the rendered texts (`client_text`,
-    `rm_text`) and a `validation` block that re-checks the final text against the facts.
+    `rm_text`), deterministic evidence, and a `validation` block that re-checks the final text
+    against the facts.
     """
     client_facts, rm_facts = build_facts(assessment, simulation, client, data_gaps, metrics)
     with ThreadPoolExecutor(max_workers=2) as pool:
@@ -591,6 +595,7 @@ def explain_assessment(
         "prompt_version": PROMPT_VERSION,
         "source": "llm" if used_llm else "template",
         "fallback_reason": fallback,
+        "evidence": assessment.get("evidence", {}),
         "validation": {"passed": all(c["passed"] for c in checks), "checks": checks},
         "client_text": render_client_text(client_expl),
         "rm_text": render_rm_text(rm_expl, rm_facts, assessment, metrics, suitability),
